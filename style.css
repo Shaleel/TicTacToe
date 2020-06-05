@@ -78,6 +78,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(0,35,255,1) 0%,
     
 
 }
+
 #one,#two,#three{
     border-top: 0em;
 }
@@ -89,4 +90,19 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(0,35,255,1) 0%,
 }
 #three,#six,#nine{
     border-right: 0em;
+}
+
+#clear{
+    text-decoration: none;
+    display: none;
+    margin-top: 5vh;
+    border-radius: 5%;
+    border: solid white;
+    font-size: 150%;
+    color: white;
+    padding: 2%;
+    cursor:pointer ;
+}
+#clear:hover{
+    background-color: rgb(68, 208, 255);
 }

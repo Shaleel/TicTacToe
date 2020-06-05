@@ -11,6 +11,9 @@ document.getElementById('play').addEventListener('click',()=>{
     turnMessage.innerText=`${currTurn}'s turn`
     playerSign='X'
     compSign='O'
+    for(const elem of element){
+        elem.addEventListener('click',placeMove)
+    }
 })
 
 
@@ -22,14 +25,19 @@ board=[{visited:false,pos:document.getElementById('0'),value:"0"},{visited:false
 
       //adding event liteners
 
-for(const elem of element){
-    elem.addEventListener('click',placeMove)
-}
 
+
+var noTimesOpen=0
+const clear=document.getElementById('clear')
+clear.addEventListener('click',clearResponse)
 var putSign='';
 function placeMove(e){
        var no=e.target.id
-       
+       noTimesOpen++;
+       if(noTimesOpen>0){
+                clear.style.display='block'
+                clear.innerText='Clear'
+       }
        if(playerTurn){
                 turnMessage.innerText=`${currTurn}'s turn`
                 putSign=playerSign
@@ -55,7 +63,8 @@ function placeMove(e){
        }
        
 
-       else if(won()) turnMessage.innerText=`${currTurn} Won`
+       else if(won()) {       
+        turnMessage.innerText=`${currTurn} Won`}
        
       if(checkDraw()==true){
               turnMessage.innerText=`Match Draw`
@@ -78,7 +87,9 @@ function move(id){
 
         }
         if(won()){
-                        
+                  
+                clear.innerText='Replay' 
+
                 if(currTurn=='X') currTurn='O'
                 else currTurn='X'
                 turnMessage.innerText=`${currTurn} Won` 
@@ -152,8 +163,28 @@ function checkDraw(){
         }
    return false     
 }
+
 function stopListening(){
         for(var i=0;i<board.length;i++){
-                document.getElementById(`${i}`).removeEventListener()
+                document.getElementById(`${i}`).removeEventListener("click",placeMove)
         }
+}
+
+function clearResponse(){
+        for(var i=0;i<board.length;i++){
+                board[i].visited=false;
+                board[i].pos=document.getElementById(`${i}`)
+                board[i].pos.innerText=""
+                board[i].value=`${i}`
+                board[i].pos.style.backgroundColor='transparent'
+        }
+        if(clear.innerText=='Replay'){
+                for(const elem of element){
+                        elem.addEventListener('click',placeMove)
+                    }    
+        }
+        if(currTurn=='O') currTurn='X'
+        turnMessage.innerText=`${currTurn}'s turn`
+         playerTurn=true
+         compTurn=false
 }
