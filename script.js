@@ -163,13 +163,13 @@ function checkDraw(){
         }
    return false     
 }
-
+//this function stops listening to clicks
 function stopListening(){
         for(var i=0;i<board.length;i++){
                 document.getElementById(`${i}`).removeEventListener("click",placeMove)
         }
 }
-
+//this function clear responses
 function clearResponse(){
         for(var i=0;i<board.length;i++){
                 board[i].visited=false;
