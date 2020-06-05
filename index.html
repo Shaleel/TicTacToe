@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- personal css -->
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+
+    <!-- Homepage -->
+
+    <div  class="welcome text-center">
+        <h1 class=" my-5">Tic Tac Toe</h1>
+        <h2 class=" my-3">This is a two player Game</h2>
+        <div style="display: flex; flex-direction: column; text-align: center; align-items: center;">
+            <a href="#playing-area" id="play" class="p-3" style="margin-top: 5%; margin-bottom: 5%; display: flex; justify-content: center; align-items: center; height: 10vh; width: 10vh; text-decoration: none ;  color: black; cursor: pointer; " ><div  >Play</i></div></a>
+           
+        </div>
+    </div>
+
+    <!-- Playing Area -->
+    
+    <div class="playing-area" id="playing-area">
+        <div style><h3 id="turn-message"></h3></div>
+            <div style="border: black;"  class="board">
+                <a id="one"><div class="grid-item" id="0"></div></a>
+                <a id="two"><div class="grid-item" id="1"></div></a>
+                <a id="three"><div class="grid-item" id="2"></div></a>
+                <a id="four"><div class="grid-item" id="3"></div></a>
+                <a id="five"><div class="grid-item" id="4"></div></a>
+                <a id="six"><div class="grid-item" id="5"></div></a>
+                <a id="seven"><div class="grid-item" id="6"></div></a>
+                <a id="eight"><div class="grid-item" id="7"></div></a>
+                <a id="nine"><div class="grid-item" id="8"></div></a>
+            
+          </div>
+    </div>
+    
+<script src="script.js"></script>
+</body>
+</html>
