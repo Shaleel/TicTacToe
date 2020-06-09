@@ -39,28 +39,35 @@ function placeMove(e){
                 clear.innerText='Clear'
        }
        if(playerTurn){
-                turnMessage.innerText=`${currTurn}'s turn`
+        if(!board[no].visited){
+        turnMessage.innerText=`${currTurn}'s turn`
                 putSign=playerSign
                 currTurn='O'
                 turnMessage.innerText=`${currTurn}'s turn`
                 move(no)
-               
+       }      
         }
        else if(compTurn){
+        if(!board[no].visited)
+        {
                 turnMessage.innerText=`${currTurn}'s turn`
                 putSign=compSign
                 currTurn='X'
                 turnMessage.innerText=`${currTurn}'s turn`
                 move(no)
-
+        }
+       }
        
         if(!won()){
                 if(ismoveLeft()){
+                        if(!board[no].visited)
+                        {
                         if(currTurn=='X') currTurn='O'
                         else currTurn='X'
                         }
+                        }
                  }
-       }
+       
        
 
        else if(won()) {       
@@ -69,8 +76,11 @@ function placeMove(e){
       if(checkDraw()==true){
               turnMessage.innerText=`Match Draw`
       }
+      if(!board[no].visited)
+      {
        playerTurn=!playerTurn
        compTurn=!compTurn
+      }
 }
 
 function move(id){
